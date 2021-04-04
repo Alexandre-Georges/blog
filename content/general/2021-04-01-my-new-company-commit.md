@@ -4,8 +4,8 @@ slug: '2021-04-01-my-new-company-commit'
 title: 'My New Company: Commit'
 date: '2021-04-01T23:31:51.969Z'
 tags:
-  - 'blog'
   - 'opinion'
+metaDescription: 'I joined a new company: Commit. I explore its business model and how it compares with a traditional consultancy agency.'
 ---
 
 I recently joined a new company: Commit!

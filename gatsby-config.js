@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Alexandre Georges' blog`,
+    description: `Technical articles, beer ideas and my opinions.`,
+    author: `Alexandre Georges`,
+    siteUrl: `https://ageo.gtsb.io`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -66,5 +67,6 @@ module.exports = {
         // filter: (node, getNode) => node.frontmatter.tags !== "exempt",
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 };

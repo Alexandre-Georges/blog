@@ -24,6 +24,9 @@
   }
 } */
 
+* {
+  box-sizing: border-box;
+}
 
 ul.simple-list {
   list-style-type: none;
@@ -46,8 +49,19 @@ a:hover {
 }
 
 
+pre {
+  white-space: break-spaces;
+}
+
+
+code {
+  font-size: 0.8rem;
+}
+
+
 .biography {
   padding: 2rem;
+  width: 100%
 }
 
 .biography .photo {
@@ -114,12 +128,12 @@ a:hover {
 .layout .main-container main {
   padding: 0;
   margin: 0;
+  max-width: inherit;
 }
 
 
 .page-title {
   margin: 0 0 3rem;
-  text-transform: capitalize;
 }
 
 
@@ -138,6 +152,12 @@ a:hover {
 
 .article-container .title {
   margin: 0;
+  font-size: 1.4rem;
+}
+
+.article-container.full-article .title {
+  margin-top: 0.5rem;
+  font-size: 1.7rem;
 }
 
 .article-container .top-container {
@@ -154,6 +174,10 @@ a:hover {
   margin-top: 1rem;
 }
 
+.article-container.full-article .content {
+  margin-top: 2rem;
+}
+
 .article-container .read-more-link {
   margin-top: 1.5rem;
 }
@@ -163,6 +187,7 @@ a:hover {
   padding: 0.2rem 0.6rem;
   border: 1px solid currentColor;
   border-radius: 1rem;
+  font-size: 0.8rem;
 }
 
 .tag:hover {
@@ -183,6 +208,10 @@ a:hover {
   margin-top: 2rem;
 }
 
+.search-container .search-field {
+  width: 100%;
+}
+
 .search-container .results {
   padding-left: 0.5rem;
 }
@@ -190,5 +219,15 @@ a:hover {
 @media only screen and (min-width: 720px) {
   .layout {
     flex-direction: row;
+  }
+
+  .layout .main-container {
+    width: 75%;
+  }
+
+  .biography {
+    width: 25%;
+    min-width: 15rem;
+    max-width: 20rem;
   }
 }

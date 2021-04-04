@@ -10,7 +10,7 @@ export default function Post({ data, location }) {
   return (
     <Layout location={location}>
       <SEO title={frontmatter.title} />
-      <div className="article-container">
+      <div className="article-container full-article">
         <div className="top-container">
           <div>
             <span className="date">{frontmatter.date}</span>
@@ -25,7 +25,7 @@ export default function Post({ data, location }) {
             ))}
           </ul>
         </div>
-        <h2 className="title">{frontmatter.title}</h2>
+        <h1 className="title">{frontmatter.title}</h1>
         <div
           className="content"
           dangerouslySetInnerHTML={{ __html: html }}
