@@ -1,10 +1,11 @@
 ---
-slug: 'posts/2021-04-02-blah'
-title: 'My New Company: dsa'
+category: 'general'
+slug: '2021-04-01-my-new-company-commit'
+title: 'My New Company: Commit'
 date: '2021-04-01T23:31:51.969Z'
 tags:
   - 'blog'
-  - 'random'
+  - 'opinion'
 ---
 
 I recently joined a new company: Commit!

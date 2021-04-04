@@ -140,12 +140,12 @@ a:hover {
   margin: 0;
 }
 
-.article-container .date-tags-container {
+.article-container .top-container {
   display: flex;
   justify-content: space-between;
 }
 
-.article-container .date-tags-container .date {
+.article-container .top-container .date {
   font-size: 1.1rem;
   font-weight: 400;
 }
@@ -176,6 +176,15 @@ a:hover {
 
 .tags .tag-container:nth-child(n+2) {
   margin-left: 0.5rem;
+}
+
+
+.search-container {
+  margin-top: 2rem;
+}
+
+.search-container .results {
+  padding-left: 0.5rem;
 }
 
 @media only screen and (min-width: 720px) {

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "author": "Alexandre Georges <alexandre.georges.pro@gmail.com>",
   "dependencies": {
+    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^3.0.2",
     "gatsby": "^3.1.2",
     "gatsby-plugin-gatsby-cloud": "^2.1.0",
     "gatsby-plugin-image": "^1.1.2",

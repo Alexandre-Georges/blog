@@ -2,13 +2,17 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Tag from '../components/tag';
 
-export default function ShortenPost({ edge }) {
+export default function ShortenPost({ node }) {
   return (
     <div className="article-container">
-      <div className="date-tags-container">
-        <span className="date">{edge.node.frontmatter.date}</span>
+      <div className="top-container">
+        <div>
+          <span className="date">{node.frontmatter.date}</span>
+          &nbsp;-&nbsp;
+          <a href={`/categories/${node.frontmatter.category}`}>{node.frontmatter.category.toUpperCase()}</a>
+        </div>
         <ul className="simple-list tags">
-          {edge.node.frontmatter.tags.map(tag => (
+          {node.frontmatter.tags.map(tag => (
             <li key={tag} className="tag-container">
               <Tag name={tag} />
             </li>
@@ -16,15 +20,15 @@ export default function ShortenPost({ edge }) {
         </ul>
       </div>
       <h2 className="title">
-        <Link to={`/${edge.node.frontmatter.slug}`}>
-          {edge.node.frontmatter.title}
+        <Link to={`/${node.frontmatter.slug}`}>
+          {node.frontmatter.title}
         </Link>
       </h2>
       <div
         className="content"
-        dangerouslySetInnerHTML={{ __html: edge.node.excerpt }}
+        dangerouslySetInnerHTML={{ __html: node.excerpt }}
       />
-      <Link to={`/${edge.node.frontmatter.slug}`} className="read-more-link">
+      <Link to={`/${node.frontmatter.slug}`} className="read-more-link">
         Read More
       </Link>
     </div>

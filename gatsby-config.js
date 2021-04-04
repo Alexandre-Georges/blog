@@ -35,17 +35,36 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `posts`,
-        path: `${__dirname}/content/posts`,
+        name: `general`,
+        path: `${__dirname}/content/general`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `tech-posts`,
-        path: `${__dirname}/content/tech-posts`,
+        name: `tech`,
+        path: `${__dirname}/content/tech`,
       },
     },
     `gatsby-transformer-remark`,
+    {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        // Fields to index
+        fields: [`category`, `title`, `tags`, `slug`],
+        // How to resolve each field`s value for a supported node type
+        resolvers: {
+          // For any node of type MarkdownRemark, list how to resolve the fields` values
+          MarkdownRemark: {
+            category: node => node.frontmatter.category,
+            title: node => node.frontmatter.title,
+            tags: node => node.frontmatter.tags,
+            slug: node => node.frontmatter.slug,
+          },
+        },
+        // Optional filter to limit indexed nodes
+        // filter: (node, getNode) => node.frontmatter.tags !== "exempt",
+      },
+    },
   ],
 };

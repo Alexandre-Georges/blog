@@ -1,17 +1,16 @@
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
 
-  // filter: { fileAbsolutePath: { regex: "/content\/posts/" } }
+  const categories = {};
   const tags = {};
   const result = await graphql(`
     {
       allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-        edges {
-          node {
-            frontmatter {
-              tags
-              slug
-            }
+        nodes {
+          frontmatter {
+            category
+            tags
+            slug
           }
         }
       }
@@ -23,7 +22,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.allMarkdownRemark.nodes.forEach((node) => {
+    categories[node.frontmatter.category] = true;
     node.frontmatter.tags.forEach(tag => (tags[tag] = true));
 
     createPage({
@@ -35,10 +35,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     });
   });
 
+  Object.keys(categories).forEach(category => {
+    createPage({
+      path: `/categories/${category}`,
+      component: require.resolve(`./src/templates/post-list-by-category.js`),
+      context: {
+        category,
+      },
+    });
+  });
+
   Object.keys(tags).forEach(tag => {
     createPage({
       path: `/tags/${tag}`,
-      component: require.resolve(`./src/templates/tag-posts.js`),
+      component: require.resolve(`./src/templates/post-list-by-tag.js`),
       context: {
         tag,
       },

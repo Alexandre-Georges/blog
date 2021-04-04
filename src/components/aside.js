@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
+import { Link, StaticQuery, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
+import Search from './search';
 
 const getLinkClasses = (linkPath, location) =>
   location.pathname === linkPath ? ' underlined' : '';
@@ -11,7 +12,11 @@ const links = [
     label: 'Posts',
   },
   {
-    path: '/tech',
+    path: '/categories/general',
+    label: 'General Posts',
+  },
+  {
+    path: '/categories/tech',
     label: 'Tech',
   },
 ];
@@ -71,6 +76,16 @@ const Aside = ({ location }) => (
         </li>
       ))}
     </ul>
+    <StaticQuery
+      query={graphql`
+        query SearchIndexQuery {
+          siteSearchIndex {
+            index
+          }
+        }
+      `}
+      render={data => <Search searchIndex={data.siteSearchIndex.index} />}
+    />
   </aside>
 );
 
