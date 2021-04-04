@@ -11,8 +11,8 @@ type DataProps = {
   };
 };
 
-const UsingTypescript: React.FC<PageProps<DataProps>> = ({ data, path }) => (
-  <Layout>
+const UsingTypescript: React.FC<PageProps<DataProps>> = ({ location, data, path }) => (
+  <Layout location={location}>
     <SEO title="Using TypeScript" />
     <h1>Gatsby supports TypeScript by default!</h1>
     <p>
