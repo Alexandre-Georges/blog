@@ -11,7 +11,7 @@ const IndexPage = ({ location, data }) => {
 
   return (
     <Layout location={location}>
-      <SEO title="Home" />
+      <SEO title="Technical Posts" />
       <ul className="simple-list articles">
         {edges.map(edge => (
           <li key={edge.node.frontmatter.slug} className="article-item">
@@ -29,7 +29,7 @@ export const pageQuery = graphql`
   {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { fileAbsolutePath: { regex: "/content/posts/" } }
+      filter: { fileAbsolutePath: { regex: "/content/tech-posts/" } }
     ) {
       edges {
         node {
