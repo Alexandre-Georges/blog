@@ -147,7 +147,7 @@ code {
 
 
 .article-container > * {
-  display: block;
+  display: inline-block;
 }
 
 .article-container .title {
