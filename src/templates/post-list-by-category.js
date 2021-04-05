@@ -12,7 +12,7 @@ export default function PostListByCategory({ data, location, pageContext }) {
   const { nodes } = allMarkdownRemark;
   return (
     <Layout location={location}>
-      <SEO title={pageContext.category} />
+      <SEO title={capitalize(pageContext.category)} />
       <h1 className="page-title">
         {capitalize(pageContext.category)}
         &nbsp;-&nbsp;

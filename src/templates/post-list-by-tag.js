@@ -12,7 +12,7 @@ export default function PostListByTag({ data, location, pageContext }) {
   const { nodes } = allMarkdownRemark;
   return (
     <Layout location={location}>
-      <SEO title={pageContext.tag} />
+      <SEO title={capitalize(pageContext.tag)} />
       <h1 className="page-title">
         {capitalize(pageContext.tag)}
         &nbsp;-&nbsp;
