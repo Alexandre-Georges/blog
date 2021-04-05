@@ -5,6 +5,8 @@ import SEO from '../components/seo';
 import Layout from '../components/layout';
 import ShortenPost from '../components/shorten-post';
 
+import capitalize from '../utils/capitalize';
+
 export default function PostListByCategory({ data, location, pageContext }) {
   const { allMarkdownRemark } = data;
   const { nodes } = allMarkdownRemark;
@@ -12,7 +14,8 @@ export default function PostListByCategory({ data, location, pageContext }) {
     <Layout location={location}>
       <SEO title={pageContext.category} />
       <h1 className="page-title">
-        {pageContext.category} -{' '}
+        {capitalize(pageContext.category)}
+        &nbsp;-&nbsp;
         {nodes.length === 1 ? '1 article' : `${nodes.length} articles`}
       </h1>
       <ul className="simple-list articles">
@@ -30,9 +33,7 @@ export const pageQuery = graphql`
   query($category: String!) {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: {
-        frontmatter: { category: { eq: $category } }
-      }
+      filter: { frontmatter: { category: { eq: $category } } }
     ) {
       nodes {
         excerpt(pruneLength: 500)

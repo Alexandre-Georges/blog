@@ -9,7 +9,9 @@ export default function ShortenPost({ node }) {
         <div>
           <span className="date">{node.frontmatter.date}</span>
           &nbsp;-&nbsp;
-          <a href={`/categories/${node.frontmatter.category}`}>{node.frontmatter.category.toUpperCase()}</a>
+          <a href={`/categories/${node.frontmatter.category}`}>
+            {node.frontmatter.category.toUpperCase()}
+          </a>
         </div>
         <ul className="simple-list tags">
           {node.frontmatter.tags.map(tag => (
@@ -20,9 +22,7 @@ export default function ShortenPost({ node }) {
         </ul>
       </div>
       <h2 className="title">
-        <Link to={`/${node.frontmatter.slug}`}>
-          {node.frontmatter.title}
-        </Link>
+        <Link to={`/${node.frontmatter.slug}`}>{node.frontmatter.title}</Link>
       </h2>
       <div
         className="content"

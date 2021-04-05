@@ -22,7 +22,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
 
-  result.data.allMarkdownRemark.nodes.forEach((node) => {
+  result.data.allMarkdownRemark.nodes.forEach(node => {
     categories[node.frontmatter.category] = true;
     node.frontmatter.tags.forEach(tag => (tags[tag] = true));
 

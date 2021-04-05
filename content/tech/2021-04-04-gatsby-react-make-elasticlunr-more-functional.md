@@ -18,18 +18,18 @@ I was disappointed when I saw that the example provided uses a class. I prefer f
 Here is the example provided:
 
 ```javascript
-import React, { Component } from "react"
-import { Index } from "elasticlunr"
-import { Link } from "gatsby"
+import React, { Component } from 'react';
+import { Index } from 'elasticlunr';
+import { Link } from 'gatsby';
 
 // Search component
 export default class Search extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       query: ``,
       results: [],
-    }
+    };
   }
 
   render() {
@@ -39,23 +39,23 @@ export default class Search extends Component {
         <ul>
           {this.state.results.map(page => (
             <li key={page.id}>
-              <Link to={"/" + page.path}>{page.title}</Link>
-              {": " + page.tags.join(`,`)}
+              <Link to={'/' + page.path}>{page.title}</Link>
+              {': ' + page.tags.join(`,`)}
             </li>
           ))}
         </ul>
       </div>
-    )
+    );
   }
   getOrCreateIndex = () =>
     this.index
       ? this.index
       : // Create an elastic lunr index and hydrate with graphql query results
-        Index.load(this.props.searchIndex)
+        Index.load(this.props.searchIndex);
 
   search = evt => {
-    const query = evt.target.value
-    this.index = this.getOrCreateIndex()
+    const query = evt.target.value;
+    this.index = this.getOrCreateIndex();
     this.setState({
       query,
       // Query the index with search string to get an [] of IDs
@@ -63,8 +63,8 @@ export default class Search extends Component {
         .search(query, {})
         // Map over each ID and return the full document
         .map(({ ref }) => this.index.documentStore.getDoc(ref)),
-    })
-  }
+    });
+  };
 }
 ```
 
@@ -98,7 +98,10 @@ const Search = ({ searchIndex }) => {
       <ul className="simple-list results">
         {results.map(page => (
           <li key={page.id}>
-            <Link to={`/${page.slug}`}>{page.title}&nbsp;-&nbsp;{page.category}&nbsp;-&nbsp;{': ' + page.tags.join(`,`)}</Link>
+            <Link to={`/${page.slug}`}>
+              {page.title}&nbsp;-&nbsp;{page.category}&nbsp;-&nbsp;
+              {': ' + page.tags.join(`,`)}
+            </Link>
           </li>
         ))}
       </ul>

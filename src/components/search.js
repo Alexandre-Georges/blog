@@ -21,11 +21,19 @@ const Search = ({ searchIndex }) => {
 
   return (
     <div className="search-container">
-      <input type="text" className="search-field" value={query} onChange={search} />
+      <input
+        type="text"
+        className="search-field"
+        value={query}
+        onChange={search}
+      />
       <ul className="simple-list results">
         {results.map(page => (
           <li key={page.id}>
-            <Link to={`/${page.slug}`}>{page.title}&nbsp;-&nbsp;{page.category}&nbsp;-&nbsp;{': ' + page.tags.join(`,`)}</Link>
+            <Link to={`/${page.slug}`}>
+              {page.title}&nbsp;-&nbsp;{page.category}&nbsp;-&nbsp;
+              {': ' + page.tags.join(`,`)}
+            </Link>
           </li>
         ))}
       </ul>

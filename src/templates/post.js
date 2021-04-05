@@ -15,7 +15,9 @@ export default function Post({ data, location }) {
           <div>
             <span className="date">{frontmatter.date}</span>
             &nbsp;-&nbsp;
-            <a href={`/categories/${frontmatter.category}`}>{frontmatter.category.toUpperCase()}</a>
+            <a href={`/categories/${frontmatter.category}`}>
+              {frontmatter.category.toUpperCase()}
+            </a>
           </div>
           <ul className="simple-list tags">
             {frontmatter.tags.map(tag => (
@@ -26,10 +28,7 @@ export default function Post({ data, location }) {
           </ul>
         </div>
         <h1 className="title">{frontmatter.title}</h1>
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+        <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </Layout>
   );
