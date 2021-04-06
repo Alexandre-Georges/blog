@@ -60,8 +60,11 @@ code {
 
 
 .biography {
-  padding: 2rem;
-  width: 100%
+  padding: 0 0 3rem 0;
+  margin: 2rem;
+
+  border: 0;
+  border-bottom: 1px solid var(--text);
 }
 
 .biography .photo {
@@ -76,7 +79,7 @@ code {
 
 .biography .tagline {
   margin: 1rem 0 0;
-  color: #676767;
+  color: var(--text-light);
 }
 
 .biography .menu-links {
@@ -114,11 +117,6 @@ code {
   fill: currentColor;
 }
 
-@media (prefers-color-scheme: dark) {
-  .biography .tagline {
-    color: #c1c1c1;
-  }
-}
 
 .layout {
   display: flex;
@@ -156,7 +154,7 @@ code {
 }
 
 .article-container .title {
-  margin: 0;
+  margin: 0.3rem 0 0;
   font-size: 1.4rem;
 }
 
@@ -168,6 +166,7 @@ code {
 .article-container .top-container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .article-container .top-container .date {
@@ -177,6 +176,7 @@ code {
 
 .article-container .content {
   margin-top: 1rem;
+  text-align: justify;
 }
 
 .article-container.full-article .content {
@@ -234,5 +234,13 @@ code {
     width: 25%;
     min-width: 15rem;
     max-width: 20rem;
+
+    padding: 0 2rem;
+    margin: 2rem 0;
+
+    border-bottom: 0;
+    border-right: 1px solid;
+    border-image-source: linear-gradient(0deg, var(--bg) 0, var(--bg) 10%, var(--text));
+    border-image-slice: 1;
   }
 }
