@@ -21,8 +21,10 @@ const Search = ({ searchIndex }) => {
 
   return (
     <div className="search-container">
+      <label htmlFor="search-field">Search</label>
       <input
         type="text"
+        id="search-field"
         className="search-field"
         value={query}
         onChange={search}

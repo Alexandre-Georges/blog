@@ -29,7 +29,7 @@ export default function ShortenPost({ node }) {
         dangerouslySetInnerHTML={{ __html: node.excerpt }}
       />
       <Link to={`/${node.frontmatter.slug}`} className="read-more-link">
-        Read More
+        Read This Article
       </Link>
     </div>
   );

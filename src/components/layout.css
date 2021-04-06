@@ -76,7 +76,7 @@ code {
 
 .biography .tagline {
   margin: 1rem 0 0;
-  color: #c1c1c1;
+  color: #888;
 }
 
 .biography .menu-links {
@@ -114,6 +114,11 @@ code {
   fill: currentColor;
 }
 
+@media (prefers-color-scheme: dark) {
+  .biography .tagline {
+    color: #c1c1c1;
+  }
+}
 
 .layout {
   display: flex;
