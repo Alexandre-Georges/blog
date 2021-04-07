@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const onRenderBody = ({ setHeadComponents }) => {
-  const googleId = 'G-XFTPCTW6ME';
+  const googleId = 'G-93C26MXGM3';
   setHeadComponents([
     <script
       key="google-gst-js"
